@@ -1,3 +1,4 @@
+# Executes mathematical operation and handles exceptions, providing detailed error information such as error type, file name and line number where error occurred.
 # https://stackoverflow.com/questions/1278705/when-i-catch-an-exception-how-do-i-get-the-type-file-and-line-number
 import os
 import sys

@@ -1,3 +1,4 @@
+// Retrieves a CSRF token, deletes a specified node with that token, fetches a list of images for a specific ID in JSON format, retrieves specific map details for each image and logs an error if not found or unable to retrieve.
 // jQuery
 function getCsrfToken(callback) {
   jQuery

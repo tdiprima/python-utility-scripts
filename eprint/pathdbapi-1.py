@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# Authenticates a user, retrieves an authentication token from a given URL, uses this token to access a collection of slides and maps for a slide, fetches a unique Slide ID using collection, study ID, subject ID, and image ID, and finally handles error reporting to standard error output.
 import urllib.parse
 import requests
 import sys

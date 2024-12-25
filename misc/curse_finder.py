@@ -1,3 +1,4 @@
+# Searches for and prints occurrences of certain profanities in the files of all subdirectories of a specified base directory.
 import os
 import subprocess
 

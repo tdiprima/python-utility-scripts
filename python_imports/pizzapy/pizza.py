@@ -1,3 +1,4 @@
+# Defines a Pizza class with methods to calculate its area and measure its awesomeness based on its name, size and price.
 import math
 
 

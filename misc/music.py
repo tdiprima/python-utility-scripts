@@ -1,4 +1,6 @@
-from music21 import stream, note, chord, midi
+# Generates a MIDI file of a specified chord progression in a given key and saves it to disk.
+from music21 import stream, chord, midi
+
 
 # Function to play a chord progression
 def play_chord_progression(progression, key='C'):
@@ -16,6 +18,7 @@ def play_chord_progression(progression, key='C'):
     mf = midi.translate.streamToMidiFile(s)
     return mf
 
+
 # I-IV-V chord progression in the key of C
 progression = [1, 4, 5]
 midi_file = play_chord_progression(progression)
@@ -27,4 +30,3 @@ midi_file.write()
 midi_file.close()
 
 print(file_path)
-

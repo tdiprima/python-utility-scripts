@@ -1,3 +1,4 @@
+# Executes all Python scripts in the current and subdirectories in parallel using available CPU cores, logging any script failures to a specified error log file.
 # Updated Script for Parallel Execution
 import os
 import subprocess
@@ -9,6 +10,7 @@ error_log_file = "error_log.txt"
 # Clear the log file at the start
 with open(error_log_file, "w") as log_file:
     log_file.write("")
+
 
 def run_script(script_path):
     """
@@ -25,6 +27,7 @@ def run_script(script_path):
     except subprocess.CalledProcessError:
         return script_path  # Return the script path if it failed
 
+
 def get_all_python_scripts(root_dir):
     """
     Get a list of all Python scripts in the directory and subdirectories.
@@ -35,6 +38,7 @@ def get_all_python_scripts(root_dir):
             if file.endswith(".py"):
                 scripts.append(os.path.join(subdir, file))
     return scripts
+
 
 def main():
     # Get all Python scripts
@@ -52,6 +56,7 @@ def main():
         for script in results:
             if script:  # If the script failed
                 log_file.write(f"Error in script: {script}\n")
+
 
 if __name__ == "__main__":
     main()

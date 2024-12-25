@@ -1,7 +1,6 @@
 """
-Here's a complete TensorFlow code example that loads data from MNIST,
-creates a model, makes predictions, and calculates the F1-score and
-prints the Confusion matrix.
+Loads MNIST data, preprocesses it, trains a TensorFlow model on the data, makes predictions on a test set,
+calculates the F1 score and the Confusion Matrix, and saves the model.
 """
 
 import numpy as np

@@ -1,3 +1,4 @@
+# Implements several functions to interact with Twitter API through Tweepy, including reading home timeline, posting a status update, getting follower count of a user, and fetching a user's tweets along with their ID.
 # https://sites.psu.edu/bigdataebook/chapter3-tutorials/tutorial1/
 import tweepy
 

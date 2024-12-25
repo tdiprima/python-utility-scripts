@@ -1,3 +1,4 @@
+# Converts the current timestamp into a string in the format 'YYYYMMDD_HHMMSS - Image List' and prints it.
 import datetime
 import time
 

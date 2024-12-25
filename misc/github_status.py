@@ -1,3 +1,4 @@
+# Retrieves and prints GitHub's operational status and updates from its API, and can also serialize HTTP headers into JSON format.
 # http://www.compjour.org/tutorials/intro-to-python-requests-and-json/
 import json
 

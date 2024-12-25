@@ -1,3 +1,4 @@
+# Trains a neural network using the MNIST dataset from TensorFlow and uses the trained model to make predictions on test data.
 import tensorflow as tf
 
 # Load data into TensorFlow

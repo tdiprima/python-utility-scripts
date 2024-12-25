@@ -1,3 +1,4 @@
+# Logs the paths of directories with spaces in their names, starting from the current directory, into a text file.
 import os
 
 # Define the log file for directories with spaces

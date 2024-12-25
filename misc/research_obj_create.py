@@ -1,5 +1,7 @@
-# https://pypi.org/project/rocrate/
+# Creates a RO-Crate package with a pdf, csv, and svg file, and adds metadata including author information,
+# then writes the crate to 'exp_crate'.
 # RO-Crate establishes a lightweight approach to packaging research data and metadata.
+# https://pypi.org/project/rocrate/
 from rocrate.model.person import Person
 from rocrate.rocrate import ROCrate
 

@@ -1,3 +1,4 @@
+# This program creates a pool of worker processes which prints '1', raises an exception, and attempts to calculate the square of a series of numbers from 0 to 999 in a parallel manner.
 from multiprocessing import Pool
 
 

@@ -1,3 +1,4 @@
+# Prints out the name of each function and variable in the 'shutil' module, one per line.
 import shutil as module
 
 # This will do the trick:

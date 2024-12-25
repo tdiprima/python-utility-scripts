@@ -1,4 +1,4 @@
-# Python print to stderr
+# Allows printing of messages to the standard error output.
 from __future__ import print_function
 
 import sys

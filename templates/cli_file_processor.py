@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
-
 """A simple python script template.
+Processes command-line arguments for input and output files, printing these arguments to the console.
 https://gist.github.com/nhoffman/3006600
 """
 

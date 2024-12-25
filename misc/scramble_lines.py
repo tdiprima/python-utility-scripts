@@ -1,4 +1,6 @@
+# Randomly scrambles and prints the lines read from a specific file.
 import random
+
 
 def scramble_lines(file_path):
     # Read lines from the file
@@ -11,6 +13,7 @@ def scramble_lines(file_path):
     # Print the shuffled lines
     for line in lines:
         print(line.strip())
+
 
 # Replace 'your_file.txt' with the actual file path you want to process
 file_path = 'your_file.txt'

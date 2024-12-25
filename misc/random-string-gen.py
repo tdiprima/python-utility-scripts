@@ -1,3 +1,4 @@
+# Generates a random lowercase string of length 63 consisting of upper case letters and digits.
 # https://stackoverflow.com/questions/2257441/random-string-generation-with-upper-case-letters-and-digits
 import random
 import string

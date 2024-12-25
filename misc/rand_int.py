@@ -1,3 +1,4 @@
+# Generates and prints five random integers between 1 and 53.
 import random
 
 

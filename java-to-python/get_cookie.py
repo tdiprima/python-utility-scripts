@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# Logs into a specified account with user credentials, retrieves and displays headers and cookies, and obtains and prints a list of images in JSON format from the server using the cookies for authentication.
 import requests
 
 

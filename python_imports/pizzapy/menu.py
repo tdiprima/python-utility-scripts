@@ -1,3 +1,4 @@
+# Constructs and prints a menu of pizzas with their names, preparation time, and prices.
 from typing import List
 
 from pizza import Pizza

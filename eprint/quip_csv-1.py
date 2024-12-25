@@ -1,5 +1,6 @@
 """
 Loads wsi segmentations to the database.
+Reads Whole Slide Image (WSI) segmentations from files, processes the resultant data to calculate image metrics and create appropriate geometries, and then inserts this processed data into a MongoDB database.
 """
 from __future__ import print_function
 import datetime

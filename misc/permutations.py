@@ -1,3 +1,4 @@
+# Generates and displays all permutations of the numbers 1, 2, 3, 4.
 # Permutations of 1, 2, 3, 4
 import itertools
 

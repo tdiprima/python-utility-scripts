@@ -1,3 +1,4 @@
+# Uses multiprocessing to calculate the square of each number in a list and then prints out the results.
 # https://docs.python.org/2/library/multiprocessing.html
 from multiprocessing import Pool
 

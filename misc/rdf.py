@@ -1,3 +1,4 @@
+# Manages, queries, and manipulates RDF graphs, including extracting data from the web, creating and adding custom triples, and printing various properties and formats.
 # https://rdflib.readthedocs.io/en/stable/gettingstarted.html
 from rdflib import Graph, Literal, RDF, URIRef
 from rdflib.namespace import FOAF, XSD

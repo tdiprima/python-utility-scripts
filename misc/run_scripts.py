@@ -1,3 +1,4 @@
+# Executes all Python scripts in a directory (and its subdirectories) and logs the paths of any scripts that fail.
 import os
 import subprocess
 
@@ -7,6 +8,7 @@ error_log_file = "error_log.txt"
 # Clear the log file at the start
 with open(error_log_file, "w") as log_file:
     log_file.write("")
+
 
 def execute_scripts_in_directory(root_dir):
     """
@@ -29,6 +31,7 @@ def execute_scripts_in_directory(root_dir):
                     # Log the error to the log file
                     with open(error_log_file, "a") as log_file:
                         log_file.write(f"Error in script: {script_path}\n")
+
 
 if __name__ == "__main__":
     # Get the current directory
