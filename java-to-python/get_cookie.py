@@ -8,11 +8,11 @@ class GetToken(object):
         username = "xxxxx"
         password = "xxxxx"
         auth = "{\"name\":\"" + username + "\", \"pass\": \"" + password + "\"}"
-        r1 = requests.post('https://quip.bmi.stonybrook.edu/user/login?_format=json', data=auth)
+        r1 = requests.post('https://example.edu/user/login?_format=json', data=auth)
         # print('TEXT', response.text) # It's just the main page.
         print('HEADERS', r1.headers)
         print('COOKIE', r1.headers['Set-Cookie'])
-        r2 = requests.get('https://quip.bmi.stonybrook.edu/listofimages/48?_format=json', cookies=r1.cookies)
+        r2 = requests.get('https://example.edu/listofimages/48?_format=json', cookies=r1.cookies)
         print(r2.json())
 
 
