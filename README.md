@@ -1,2 +1,2 @@
 # python-utility-scripts
-These folders contain generic utilities and helper functions that don't fit into a specific domain but can be broadly useful.
+A collection of versatile utility functions and helpers designed to simplify common programming tasks across various domains.
