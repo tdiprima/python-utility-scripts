@@ -225,7 +225,7 @@ def set_scalar_features(row, headers, polycol, name):
     # Assuming polycol is last column
     for i in range(polycol):
         scalar_values[headers[i]] = float(row[i])
-    scalar_values["ns"] = "http://u24.bmi.stonybrook.edu/v1"
+    scalar_values["ns"] = "http://example.edu/v1"
     scalar_values["name"] = name
     return scalar_values
 
