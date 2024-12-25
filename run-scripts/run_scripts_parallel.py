@@ -1,5 +1,5 @@
-# Executes all Python scripts in the current and subdirectories in parallel using available CPU cores, logging any script failures to a specified error log file.
-# Updated Script for Parallel Execution
+# Executes all Python scripts in the current and subdirectories in parallel using available CPU cores, 
+# logging any script failures to a specified error log file.
 import os
 import subprocess
 from multiprocessing import Pool, cpu_count
@@ -28,21 +28,25 @@ def run_script(script_path):
         return script_path  # Return the script path if it failed
 
 
-def get_all_python_scripts(root_dir):
+def get_all_python_scripts(root_dir, exclude_script):
     """
-    Get a list of all Python scripts in the directory and subdirectories.
+    Get a list of all Python scripts in the directory and subdirectories,
+    excluding the current script.
     """
     scripts = []
     for subdir, _, files in os.walk(root_dir):
         for file in files:
-            if file.endswith(".py"):
+            if file.endswith(".py") and os.path.abspath(os.path.join(subdir, file)) != exclude_script:
                 scripts.append(os.path.join(subdir, file))
     return scripts
 
 
 def main():
-    # Get all Python scripts
-    scripts = get_all_python_scripts(os.getcwd())
+    # Get the absolute path of the current script to avoid executing it
+    current_script = os.path.abspath(__file__)
+
+    # Get all Python scripts, excluding the current script
+    scripts = get_all_python_scripts(os.getcwd(), current_script)
 
     # Get the number of available processors
     num_cores = cpu_count()
