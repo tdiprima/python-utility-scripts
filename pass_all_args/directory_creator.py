@@ -1,6 +1,5 @@
 """
 Created on Mar 5, 2020
-@author: Tammy DiPrima
 Creates new directories with the names given as command line arguments in the current working directory.
 https://stackoverflow.com/questions/992737/safe-rm-rf-function-in-shell-script
 https://stackoverflow.com/questions/373156/what-is-the-safest-way-to-empty-a-directory-in-nix

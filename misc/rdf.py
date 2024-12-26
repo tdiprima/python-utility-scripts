@@ -1,4 +1,5 @@
-# Manages, queries, and manipulates RDF graphs, including extracting data from the web, creating and adding custom triples, and printing various properties and formats.
+# Manages, queries, and manipulates RDF graphs, including extracting data from the web, creating and adding
+# custom triples, and printing various properties and formats.
 # https://rdflib.readthedocs.io/en/stable/gettingstarted.html
 from rdflib import Graph, Literal, RDF, URIRef
 from rdflib.namespace import FOAF, XSD
@@ -12,7 +13,7 @@ def read_graph():
 
     # Parse in an RDF file hosted on the Internet
     g.parse("http://www.w3.org/People/Berners-Lee/card")
-    # Last attempt. OK, why tf doesn't anything else work?
+    # Last attempt. OK, why doesn't anything else work?
     # g.parse("http://www.w3.org/People/Westhaver/card")  # Susan
 
     # Loop through each triple in the graph (subj, pred, obj)

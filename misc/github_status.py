@@ -27,7 +27,7 @@ def git_stat(url):
     obj = resp.json()
     my_status = obj["components"][0]
 
-    # print("GitHub's status is currently:", x['status'], 'as of:', x['last_updated'])
+    # print("GitHub's status is currently:", x1['status'], 'as of:', x1['last_updated'])
     print("As of:", my_status["updated_at"])
     if my_status["status"] == 'operational':
         print("Github is not f--ked")
@@ -43,8 +43,8 @@ def serialize():
         "cache-control": "max-age=604800",
         "server": "ECS (cpm/F9D5)",
         "date": "Mon, 20 Apr 2015 12:16:24 GMT",
-        "x-cache": "HIT",
-        "x-ec-custom-error": "1",
+        "x1-cache": "HIT",
+        "x1-ec-custom-error": "1",
         "accept-ranges": "bytes",
         "last-modified": "Fri, 09 Aug 2013 23:54:35 GMT",
         "expires": "Mon, 27 Apr 2015 12:16:24 GMT"

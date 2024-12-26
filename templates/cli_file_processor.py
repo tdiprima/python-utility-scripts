@@ -1,5 +1,8 @@
 """A simple python script template.
 Processes command-line arguments for input and output files, printing these arguments to the console.
+RUN: python cli_file_processor.py input.txt -o output.txt
+-o output.txt: Optional argument to specify the output file. If omitted, the script will write to sys.stdout.
+
 https://gist.github.com/nhoffman/3006600
 """
 

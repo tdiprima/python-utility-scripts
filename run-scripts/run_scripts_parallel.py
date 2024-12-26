@@ -1,5 +1,5 @@
-# Executes all Python scripts in the current and subdirectories in parallel using available CPU cores, 
-# logging any script failures to a specified error log file.
+# Executes all Python scripts in the current and subdirectories in parallel using
+# available CPU cores, logging any script failures to a specified error log file.
 import os
 import subprocess
 from multiprocessing import Pool, cpu_count

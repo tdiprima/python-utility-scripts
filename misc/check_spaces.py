@@ -8,6 +8,7 @@ spaces_log_file = "directories_with_spaces.txt"
 with open(spaces_log_file, "w") as log_file:
     log_file.write("")
 
+
 def find_directories_with_spaces(root_dir):
     """
     Recursively check all directories for spaces in their names.
@@ -20,6 +21,7 @@ def find_directories_with_spaces(root_dir):
                 # Log the directory with spaces to the log file
                 with open(spaces_log_file, "a") as log_file:
                     log_file.write(f"Directory with space: {dir_path}\n")
+
 
 if __name__ == "__main__":
     # Get the current directory

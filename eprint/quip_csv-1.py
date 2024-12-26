@@ -1,33 +1,35 @@
 """
 Loads wsi segmentations to the database.
-Reads Whole Slide Image (WSI) segmentations from files, processes the resultant data to calculate image metrics and create appropriate geometries, and then inserts this processed data into a MongoDB database.
+Reads Whole Slide Image (WSI) segmentations from files, processes the resultant data to calculate image metrics and
+create appropriate geometries, and then inserts this processed data into a MongoDB database.
 """
 from __future__ import print_function
-import datetime
+
 import csv
+import datetime
 import glob
 import json
 import os
 import random
-
+import sys
 from multiprocessing import Pool
-
-from geojson import Point, Polygon
-
-from pathdbapi import *
 
 import quipargs
 import quipdb
+from geojson import Point, Polygon
+from pathdbapi import get_auth_token, get_slide_unique_id, MyException
+
+import eprint
 
 pathdb = False
 pdb = {}
 
 
 def get_file_list(folder):
-    '''
+    """
     Each folder contains data for segmentation results for 1 wsi.
     This function returns a list of algmeta.json files
-    '''
+    """
     metafiles = []
     fnames = folder + "/*-algmeta.json"
     i = 1
@@ -38,9 +40,9 @@ def get_file_list(folder):
 
 
 def process_quip(mfile):
-    '''
+    """
     Processes files
-    '''
+    """
     dir = mfile[0]
     algmeta_json = mfile[1]
     index = mfile[2]
@@ -49,18 +51,18 @@ def process_quip(mfile):
 
 
 def read_metadata(meta_file):
-    '''
+    """
     Decodes JSON file to dictionary
-    '''
+    """
     mf = open(meta_file)
     data = json.load(mf)
     return data
 
 
 def process_file(mdata, fname, idx):
-    '''
+    """
     Creates json and uploads to mongo
-    '''
+    """
     # print("IDX: ", idx, " File: ", fname)
     image_width = mdata["image_width"]
     image_height = mdata["image_height"]
@@ -99,15 +101,8 @@ def process_file(mdata, fname, idx):
 
         object = {}
         object["type"] = "Feature"
-        object["properties"] = {
-            "style": {
-                "color": "#00fcfc",
-                "lineJoin": "round",
-                "lineCap": "round",
-                "isFill": False
-            },
-            "nommp": True
-        }
+        object["properties"] = {"style": {"color": "#00fcfc", "lineJoin": "round", "lineCap": "round", "isFill": False},
+            "nommp": True}
         object["geometry"] = polyjson
         object["bound"] = Polygon(bounding_box)
 
@@ -140,9 +135,9 @@ def process_file(mdata, fname, idx):
 
 
 def poly_geojson(polydata, imw, imh):
-    '''
+    """
     Returns Polygon object; coordinates and bounding box.
-    '''
+    """
     polyarray = []
     found = False
 
@@ -206,9 +201,9 @@ def poly_geojson(polydata, imw, imh):
     polyarray.append((x1, y1))
     corners = [minx, miny, maxx, maxy]
 
-    min_point = Point((minx, miny))  # smallest x and y value
+    min_point = Point((minx, miny))  # smallest x1 and y value
     mid_point = Point((minx, maxy))
-    max_point = Point((maxx, maxy))  # largest x and y value.
+    max_point = Point((maxx, maxy))  # largest x1 and y value.
     m1d_point = Point((maxx, miny))
     # min_point = Point((minx, miny))  # closes the loop
     my_array = [[min_point, mid_point, max_point, m1d_point, min_point]]
@@ -218,9 +213,9 @@ def poly_geojson(polydata, imw, imh):
 
 
 def set_scalar_features(row, headers, polycol, name):
-    '''
+    """
     Create name:value pairs (json) to be loaded to database
-    '''
+    """
     scalar_values = {}
     # Assuming polycol is last column
     for i in range(polycol):
@@ -267,7 +262,7 @@ def set_document_metadata(gj_poly, bbox, mdata, batch_id, tag_id, name, submit_d
     gj_poly["parent_id"] = "self"
     gj_poly["normalized"] = "true"
     gj_poly["bbox"] = bbox
-    gj_poly["x"] = (float(bbox[0]) + float(bbox[2])) / 2
+    gj_poly["x1"] = (float(bbox[0]) + float(bbox[2])) / 2
     gj_poly["y"] = (float(bbox[1]) + float(bbox[3])) / 2
     gj_poly["object_type"] = "nucleus"
     gj_poly["randval"] = random.random()
@@ -291,8 +286,7 @@ def check_args_pathdb(args):
     pdb["url"] = args["url"]
     pdb["user"] = args["user"]
     pdb["passwd"] = args["passwd"]
-    pdb["slide"] = ""
-    # pdb["uuid"] = ""
+    pdb["slide"] = ""  # pdb["uuid"] = ""
 
 
 if __name__ == "__main__":

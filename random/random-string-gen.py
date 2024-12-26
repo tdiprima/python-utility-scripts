@@ -14,5 +14,5 @@ result = id_generator(63)
 print(result.lower())
 
 # https://www.w3schools.com/python/python_for_loops.asp
-# for x in range(12):
+# for x1 in range(12):
 #     print('touch', id_generator() + '.css')

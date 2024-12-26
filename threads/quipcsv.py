@@ -1,7 +1,8 @@
 """
-This Python script includes a custom error class and two main functions: one for getting an authentication token from a specific endpoint, and another which if given files to process, initiates a multiprocessing pool to process them and terminates all child processes upon encountering a custom error.
-"""
-"""
+This Python script includes a custom error class and two main functions: one for getting an authentication token from
+a specific endpoint, and another which, if given files to process, initiates a multiprocessing pool to process them
+and terminates all child processes upon encountering a custom error.
+
 Create your own error.  Trying stuff to exit from the pool.
 """
 import os
@@ -74,4 +75,3 @@ if __name__ == "__main__":
             # p.close()
             # p.terminate()
             # p.join()
-

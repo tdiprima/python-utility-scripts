@@ -9,7 +9,8 @@ home_directory = os.environ["HOME"]
 base_directory = home_directory + "/trabajo/parallel-lines"
 
 # Define the bash command pattern
-ack_command = r'ack -iw --ignore-dir=node_modules --ignore-dir=.git --ignore-dir=data --ignore-dir=venv --ignore-dir=examples "wtf|wth|fxck|f#ck|fuck|sh!t|sh1t|shit|ass|@ss|crap|suck|stupid"'
+ack_command = r'ack -iw --ignore-dir=node_modules --ignore-dir=.git --ignore-dir=data --ignore-dir=venv --ignore-dir=examples "wtf|wth|fxck|f#ck|fuck|sh\!t|sh1t|shit|ass|@ss|crap|suck|stupid|tf|f\'ed"'
+
 
 def run_ack_on_directories(directory):
     for root, dirs, _ in os.walk(directory):
@@ -32,6 +33,7 @@ def run_ack_on_directories(directory):
                     print(f"Errors in {sub_dir_path}:\n{completed_process.stderr}")
             except Exception as e:
                 print(f"Error processing {sub_dir_path}: {e}")
+
 
 if __name__ == "__main__":
     run_ack_on_directories(base_directory)
